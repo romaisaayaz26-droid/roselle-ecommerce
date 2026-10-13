@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Bag — ROSÉLLE</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar text-center">
+    <span>Complimentary Express Shipping on Orders Over $100 <span class="mx-2">•</span> Use Code <span class="gold-accent fw-bold">ROSELLE20</span> for 20% Off</span>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg roselle-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        ROSÉLLE <span class="dot"></span>
+      </a>
+      
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#roselleNav">
+        <i class="bi bi-list fs-2 text-dark"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="roselleNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html?filter=new">New Arrivals</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html?filter=deals">Deals</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="icon-btn trigger-search" title="Search Catalog">
+            <i class="bi bi-search"></i>
+          </button>
+          <a href="shop.html?filter=wishlist" class="icon-btn" title="Wishlist">
+            <i class="bi bi-heart"></i>
+            <span class="badge-count wishlist-count-badge" style="display:none">0</span>
+          </a>
+          <a href="cart.html" class="icon-btn" title="Shopping Cart">
+            <i class="bi bi-bag"></i>
+            <span class="badge-count cart-count-badge" style="display:none">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Title -->
+  <div class="page-header-title bg-light border-bottom">
+    <div class="container">
+      <h1>Your Shopping Bag</h1>
+      <p>Review your selected luxury pieces before proceeding to secure checkout.</p>
+    </div>
+  </div>
+
+  <!-- Cart Content -->
+  <section class="py-5">
+    <div class="container">
+      
+      <div id="cart-non-empty-view">
+        <div class="row g-5">
+          <!-- Items Table -->
+          <div class="col-lg-8">
+            <div class="cart-table-card p-4">
+              <div class="table-responsive">
+                <table class="table table-borderless align-middle mb-0">
+                  <thead class="border-bottom text-uppercase text-muted small">
+                    <tr>
+                      <th scope="col" style="min-width: 250px;">Item Details</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Quantity</th>
+                      <th scope="col">Subtotal</th>
+                      <th scope="col" class="text-end">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="cart-table-body">
+                    <!-- Rendered via JS -->
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+                <a href="shop.html" class="btn btn-outline-dark rounded-pill btn-sm">
+                  <i class="bi bi-arrow-left me-1"></i> Continue Shopping
+                </a>
+                <button class="btn btn-link text-danger text-decoration-none btn-sm fw-semibold" onclick="handleClearCart()">
+                  Clear Shopping Bag
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order Summary Sidebar -->
+          <div class="col-lg-4">
+            <div class="order-summary-card">
+              <h4 class="font-serif fw-bold mb-4">Order Summary</h4>
+              
+              <!-- Promo Code Input -->
+              <form id="promo-form" class="mb-4" onsubmit="handleApplyPromo(event)">
+                <label class="form-label small fw-semibold text-muted text-uppercase">Promo Code</label>
+                <div class="input-group">
+                  <input type="text" id="promo-input" class="form-control form-control-sm" placeholder="Try 'ROSELLE20'">
+                  <button class="btn btn-roselle-primary btn-sm px-3" type="submit">Apply</button>
+                </div>
+                <div id="promo-msg" class="form-text mt-1 small"></div>
+              </form>
+
+              <div class="d-flex justify-content-between mb-2">
+                <span class="text-muted">Subtotal</span>
+                <span class="fw-semibold" id="cart-subtotal">$0.00</span>
+              </div>
+
+              <div class="d-flex justify-content-between mb-2">
+                <span class="text-muted">Estimated Shipping</span>
+                <span class="fw-semibold text-success" id="cart-shipping">FREE</span>
+              </div>
+
+              <div class="d-flex justify-content-between mb-3 text-success d-none" id="discount-row">
+                <span>Promo Discount (20%)</span>
+                <span class="fw-semibold" id="cart-discount">-$0.00</span>
+              </div>
+
+              <hr class="my-3">
+
+              <div class="d-flex justify-content-between mb-4 fs-5 fw-bold">
+                <span>Estimated Total</span>
+                <span id="cart-total">$0.00</span>
+              </div>
+
+              <a href="checkout.html" class="btn btn-roselle-primary w-100 justify-content-center py-3">
+                Proceed to Checkout <i class="bi bi-lock-fill ms-2"></i>
+              </a>
+
+              <div class="text-center mt-3 text-muted extra-small">
+                <i class="bi bi-shield-check me-1"></i> 256-bit SSL Encrypted & Safe Checkout
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty Cart View -->
+      <div id="cart-empty-view" class="text-center py-5 d-none">
+        <div class="py-4">
+          <i class="bi bi-bag-x fs-1 text-muted mb-3 d-block"></i>
+          <h3 class="font-serif">Your shopping bag is empty</h3>
+          <p class="text-muted max-w-500 mx-auto mb-4">You haven't added any luxury pieces to your cart yet. Explore our departments to discover timeless arrivals.</p>
+          <a href="shop.html" class="btn btn-roselle-primary">
+            Explore Shop Catalog <i class="bi bi-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="roselle-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h5>ROSÉLLE</h5>
+          <p class="text-muted small pe-lg-4 mb-4" style="color: rgba(255,255,255,0.6) !important;">
+            Feminine, modern, and timeless fashion & beauty essentials crafted with quiet luxury in mind.
+          </p>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6 mb-4">
+          <h6 class="text-white text-uppercase fw-semibold mb-3 small" style="letter-spacing: 0.1em;">Categories</h6>
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+            <li><a href="nails.html">Nails</a></li>
+            <li><a href="clothes.html">Women Clothes</a></li>
+            <li><a href="accessories.html">Accessories</a></li>
+            <li><a href="sandals.html">Sandals</a></li>
+            <li><a href="shoes.html">Shoes</a></li>
+            <li><a href="makeup.html">Makeup</a></li>
+            <li><a href="perfumes.html">Perfumes</a></li>
+            <li><a href="watches.html">Watches</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6 mb-4">
+          <h6 class="text-white text-uppercase fw-semibold mb-3 small" style="letter-spacing: 0.1em;">Quick Links</h6>
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+            <li><a href="shop.html">Shop All</a></li>
+            <li><a href="categories.html">Department Overview</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="cart.html">My Cart</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h6 class="text-white text-uppercase fw-semibold mb-3 small" style="letter-spacing: 0.1em;">Newsletter</h6>
+          <p class="small mb-3" style="color: rgba(255,255,255,0.6);">Subscribe to receive private invitations to new collection previews.</p>
+          <form onsubmit="event.preventDefault(); showToast('Thank you for subscribing!', 'bi-envelope-check'); this.reset();" class="d-flex gap-2">
+            <input type="email" required placeholder="Your email address" class="form-control form-control-sm bg-transparent border-secondary text-white">
+            <button type="submit" class="btn btn-sm btn-roselle-primary px-3 text-nowrap">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center">
+        <div>&copy; 2026 ROSÉLLE Inc. All Rights Reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCartPage();
+    });
+
+    function renderCartPage() {
+      const cart = getCart();
+      const emptyView = document.getElementById('cart-empty-view');
+      const nonEmptyView = document.getElementById('cart-non-empty-view');
+      const tbody = document.getElementById('cart-table-body');
+
+      if (cart.length === 0) {
+        nonEmptyView.classList.add('d-none');
+        emptyView.classList.remove('d-none');
+        return;
+      }
+
+      emptyView.classList.add('d-none');
+      nonEmptyView.classList.remove('d-none');
+
+      tbody.innerHTML = cart.map((item, index) => {
+        const itemTotal = (item.price * item.quantity).toFixed(2);
+        return `
+          <tr class="border-bottom">
+            <td>
+              <div class="d-flex align-items-center gap-3 py-2">
+                <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                <div>
+                  <h6 class="font-serif mb-1 fw-bold">
+                    <a href="product.html?id=${item.id}" class="text-dark">${item.name}</a>
+                  </h6>
+                  <span class="text-muted extra-small text-uppercase d-block">${item.categoryName}</span>
+                  ${item.variant ? `<span class="badge bg-light text-dark border small mt-1">${item.variant}</span>` : ''}
+                </div>
+              </div>
+            </td>
+            <td class="fw-semibold">$${item.price.toFixed(2)}</td>
+            <td>
+              <div class="quantity-picker" style="transform: scale(0.85); transform-origin: left center;">
+                <button type="button" class="quantity-btn" onclick="handleQtyChange(${index}, ${item.quantity - 1})"><i class="bi bi-dash"></i></button>
+                <input type="number" class="quantity-input" value="${item.quantity}" readonly>
+                <button type="button" class="quantity-btn" onclick="handleQtyChange(${index}, ${item.quantity + 1})"><i class="bi bi-plus"></i></button>
+              </div>
+            </td>
+            <td class="fw-bold text-dark">$${itemTotal}</td>
+            <td class="text-end">
+              <button class="btn btn-link text-muted p-0" onclick="handleRemoveItem(${index})" title="Remove item">
+                <i class="bi bi-trash fs-5"></i>
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      updateSummaryValues();
+    }
+
+    function handleQtyChange(index, newQty) {
+      updateCartQuantity(index, newQty);
+      renderCartPage();
+    }
+
+    function handleRemoveItem(index) {
+      removeFromCart(index);
+      renderCartPage();
+    }
+
+    function handleClearCart() {
+      if (confirm('Are you sure you want to clear your entire bag?')) {
+        clearCart();
+        renderCartPage();
+      }
+    }
+
+    function updateSummaryValues() {
+      const totals = getCartTotals();
+      document.getElementById('cart-subtotal').textContent = `$${totals.subtotal}`;
+      document.getElementById('cart-shipping').textContent = totals.shipping;
+      document.getElementById('cart-total').textContent = `$${totals.total}`;
+
+      const discountRow = document.getElementById('discount-row');
+      const discountEl = document.getElementById('cart-discount');
+      if (parseFloat(totals.discountAmount) > 0) {
+        discountRow.classList.remove('d-none');
+        discountEl.textContent = `-$${totals.discountAmount}`;
+      } else {
+        discountRow.classList.add('d-none');
+      }
+    }
+
+    function handleApplyPromo(e) {
+      e.preventDefault();
+      const code = document.getElementById('promo-input').value.trim().toUpperCase();
+      const msg = document.getElementById('promo-msg');
+
+      if (code === 'ROSELLE20') {
+        sessionStorage.setItem('roselle_promo_discount', '0.20');
+        msg.className = 'form-text mt-1 small text-success fw-bold';
+        msg.textContent = '✓ 20% discount code applied successfully!';
+        showToast('ROSELLE20 Promo Applied (20% Off)', 'bi-tag-fill');
+      } else {
+        sessionStorage.removeItem('roselle_promo_discount');
+        msg.className = 'form-text mt-1 small text-danger';
+        msg.textContent = 'Invalid promo code. Try "ROSELLE20".';
+      }
+      updateSummaryValues();
+    }
+  </script>
+</body>
+</html>

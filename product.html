@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details — ROSÉLLE</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar text-center">
+    <span>Complimentary Express Shipping on Orders Over $100 <span class="mx-2">•</span> Use Code <span class="gold-accent fw-bold">ROSELLE20</span> for 20% Off</span>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg roselle-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        ROSÉLLE <span class="dot"></span>
+      </a>
+      
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#roselleNav">
+        <i class="bi bi-list fs-2 text-dark"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="roselleNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html?filter=new">New Arrivals</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html?filter=deals">Deals</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="icon-btn trigger-search" title="Search Catalog">
+            <i class="bi bi-search"></i>
+          </button>
+          <a href="shop.html?filter=wishlist" class="icon-btn" title="Wishlist">
+            <i class="bi bi-heart"></i>
+            <span class="badge-count wishlist-count-badge" style="display:none">0</span>
+          </a>
+          <a href="cart.html" class="icon-btn" title="Shopping Cart">
+            <i class="bi bi-bag"></i>
+            <span class="badge-count cart-count-badge" style="display:none">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="bg-light py-2 border-bottom">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0 small text-muted">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="shop.html" id="breadcrumb-category">Shop</a></li>
+          <li class="breadcrumb-item active" aria-current="page" id="breadcrumb-title">Product</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Product Detail Section -->
+  <section class="py-5">
+    <div class="container" id="product-detail-container">
+      
+      <div class="row g-5">
+        <!-- Gallery Images Column -->
+        <div class="col-lg-6">
+          <div class="mb-3 text-center bg-light rounded-4 overflow-hidden border">
+            <img id="main-product-img" src="" alt="Product Image" class="product-detail-img-main" fetchpriority="high" decoding="async">
+          </div>
+          <div class="d-flex gap-3 justify-content-center" id="gallery-thumbs-container">
+            <!-- Rendered via JS -->
+          </div>
+        </div>
+
+        <!-- Product Specs Column -->
+        <div class="col-lg-6">
+          <div class="ps-lg-3">
+            <span id="p-category-badge" class="badge bg-sage-light text-sage border border-sage px-3 py-1 rounded-pill mb-2 fw-semibold text-uppercase small" style="color: #7B8B64;">Category</span>
+            
+            <h1 id="p-name" class="display-6 font-serif fw-bold mb-2">Loading Product...</h1>
+            
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div class="text-warning small" id="p-stars">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <span class="text-muted small" id="p-rating-text">4.9 (120 customer reviews)</span>
+            </div>
+
+            <div class="mb-4 d-flex align-items-baseline gap-3">
+              <span id="p-price" class="display-6 fw-bold text-dark">$0.00</span>
+              <span id="p-original-price" class="text-muted text-decoration-line-through fs-5"></span>
+              <span id="p-stock-badge" class="badge bg-success-subtle text-success border border-success px-2 py-1 ms-auto small">In Stock</span>
+            </div>
+
+            <p id="p-description" class="text-muted mb-4 lead fs-6">
+              Detailed product description will render here.
+            </p>
+
+            <!-- Variant Selector -->
+            <div class="mb-4" id="variants-section">
+              <label class="form-label fw-semibold text-uppercase small tracking-wider" id="variants-label">Select Option:</label>
+              <div class="d-flex flex-wrap gap-2" id="variants-container">
+                <!-- Swatches rendered via JS -->
+              </div>
+            </div>
+
+            <!-- Quantity & Actions -->
+            <div class="d-flex flex-wrap align-items-center gap-3 mb-4">
+              <div class="quantity-picker">
+                <button type="button" class="quantity-btn" id="qty-minus"><i class="bi bi-dash"></i></button>
+                <input type="number" id="qty-input" class="quantity-input" value="1" min="1" max="99">
+                <button type="button" class="quantity-btn" id="qty-plus"><i class="bi bi-plus"></i></button>
+              </div>
+
+              <button class="btn btn-roselle-primary flex-grow-1" id="btn-add-to-cart">
+                <i class="bi bi-bag-plus me-1"></i> Add to Bag
+              </button>
+
+              <button class="btn btn-dark rounded-pill px-4" id="btn-buy-now">
+                Buy Now
+              </button>
+
+              <button class="icon-btn border-dark" id="btn-toggle-wishlist" title="Save to Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+            </div>
+
+            <!-- Accordion Details -->
+            <div class="accordion accordion-flush border-top" id="productAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#acc-specs">
+                    Product Specifications
+                  </button>
+                </h2>
+                <div id="acc-specs" class="accordion-collapse collapse show" data-bs-parent="#productAccordion">
+                  <div class="accordion-body small text-muted" id="p-specs-content">
+                    <!-- Specs rendered via JS -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#acc-shipping">
+                    Shipping & Returns
+                  </button>
+                </h2>
+                <div id="acc-shipping" class="accordion-collapse collapse" data-bs-parent="#productAccordion">
+                  <div class="accordion-body small text-muted">
+                    Complimentary standard shipping on all orders above $100. Delivered in eco-friendly FSC-certified luxury ROSÉLLE packaging within 3-5 business days. 30-day hassle-free return policy.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#acc-care">
+                    Care & Authenticity
+                  </button>
+                </h2>
+                <div id="acc-care" class="accordion-collapse collapse" data-bs-parent="#productAccordion">
+                  <div class="accordion-body small text-muted">
+                    Every ROSÉLLE piece is handcrafted using sustainable methods and certified original raw materials. Store in provided dust bag away from direct heat and moisture.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Related Products Section -->
+      <div class="mt-5 pt-5 border-top">
+        <h3 class="font-serif display-6 mb-4">You May Also Admire</h3>
+        <div class="row g-4" id="related-products-grid">
+          <!-- Rendered via JS -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="roselle-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h5>ROSÉLLE</h5>
+          <p class="text-muted small pe-lg-4 mb-4" style="color: rgba(255,255,255,0.6) !important;">
+            Feminine, modern, and timeless fashion & beauty essentials crafted with quiet luxury in mind.
+          </p>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6 mb-4">
+          <h6 class="text-white text-uppercase fw-semibold mb-3 small" style="letter-spacing: 0.1em;">Categories</h6>
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+            <li><a href="nails.html">Nails</a></li>
+            <li><a href="clothes.html">Women Clothes</a></li>
+            <li><a href="accessories.html">Accessories</a></li>
+            <li><a href="sandals.html">Sandals</a></li>
+            <li><a href="shoes.html">Shoes</a></li>
+            <li><a href="makeup.html">Makeup</a></li>
+            <li><a href="perfumes.html">Perfumes</a></li>
+            <li><a href="watches.html">Watches</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6 mb-4">
+          <h6 class="text-white text-uppercase fw-semibold mb-3 small" style="letter-spacing: 0.1em;">Quick Links</h6>
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+            <li><a href="shop.html">Shop All</a></li>
+            <li><a href="categories.html">Department Overview</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="cart.html">My Cart</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h6 class="text-white text-uppercase fw-semibold mb-3 small" style="letter-spacing: 0.1em;">Newsletter</h6>
+          <p class="small mb-3" style="color: rgba(255,255,255,0.6);">Subscribe to receive private invitations to new collection previews.</p>
+          <form onsubmit="event.preventDefault(); showToast('Thank you for subscribing!', 'bi-envelope-check'); this.reset();" class="d-flex gap-2">
+            <input type="email" required placeholder="Your email address" class="form-control form-control-sm bg-transparent border-secondary text-white">
+            <button type="submit" class="btn btn-sm btn-roselle-primary px-3 text-nowrap">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center">
+        <div>&copy; 2026 ROSÉLLE Inc. All Rights Reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      let productId = urlParams.get('id');
+
+      // Fallback if no ID passed
+      if (!productId || !getProductById(productId)) {
+        productId = PRODUCTS[0].id;
+      }
+
+      const product = getProductById(productId);
+
+      // Populate Head Title & Breadcrumbs
+      document.title = `${product.name} — ROSÉLLE`;
+      document.getElementById('breadcrumb-title').textContent = product.name;
+      const catInfo = getCategoryInfo(product.category);
+      const catBreadcrumb = document.getElementById('breadcrumb-category');
+      if (catInfo) {
+        catBreadcrumb.textContent = catInfo.name;
+        catBreadcrumb.href = catInfo.slug;
+      }
+
+      // Main image & gallery
+      const mainImg = document.getElementById('main-product-img');
+      mainImg.src = product.image;
+      mainImg.alt = product.name;
+
+      const galleryThumbs = document.getElementById('gallery-thumbs-container');
+      const imagesList = product.gallery && product.gallery.length > 0 ? product.gallery : [product.image];
+      
+      galleryThumbs.innerHTML = imagesList.map((imgUrl, index) => `
+        <img src="${imgUrl}" alt="${product.name} ${index + 1}" class="product-detail-thumb ${index === 0 ? 'active' : ''}" onclick="switchMainImage('${imgUrl}', this)" loading="lazy" decoding="async">
+      `).join('');
+
+      window.switchMainImage = function(url, thumbEl) {
+        mainImg.src = url;
+        document.querySelectorAll('.product-detail-thumb').forEach(t => t.classList.remove('active'));
+        thumbEl.classList.add('active');
+      };
+
+      // Details
+      document.getElementById('p-category-badge').textContent = product.categoryName;
+      document.getElementById('p-name').textContent = product.name;
+      document.getElementById('p-rating-text').textContent = `${product.rating} (${product.reviewsCount} customer reviews)`;
+      document.getElementById('p-price').textContent = `$${product.price.toFixed(2)}`;
+      
+      const origPriceEl = document.getElementById('p-original-price');
+      if (product.originalPrice && product.originalPrice > product.price) {
+        origPriceEl.textContent = `$${product.originalPrice.toFixed(2)}`;
+      } else {
+        origPriceEl.style.display = 'none';
+      }
+
+      document.getElementById('p-description').textContent = product.description;
+
+      // Variants Swatches
+      let selectedVariant = product.variants ? product.variants[0] : null;
+      const variantsSection = document.getElementById('variants-section');
+      const variantsContainer = document.getElementById('variants-container');
+      const variantsLabel = document.getElementById('variants-label');
+
+      if (product.variants && product.variants.length > 0) {
+        variantsLabel.textContent = `Select ${product.variantsLabel || 'Option'}:`;
+        variantsContainer.innerHTML = product.variants.map((varName, idx) => `
+          <button type="button" class="btn btn-sm ${idx === 0 ? 'btn-dark' : 'btn-outline-secondary'} rounded-pill px-3 py-2 variant-opt-btn" onclick="selectVariant('${varName}', this)">
+            ${varName}
+          </button>
+        `).join('');
+      } else {
+        variantsSection.style.display = 'none';
+      }
+
+      window.selectVariant = function(varName, btnEl) {
+        selectedVariant = varName;
+        document.querySelectorAll('.variant-opt-btn').forEach(b => {
+          b.classList.remove('btn-dark');
+          b.classList.add('btn-outline-secondary');
+        });
+        btnEl.classList.remove('btn-outline-secondary');
+        btnEl.classList.add('btn-dark');
+      };
+
+      // Quantity controls
+      const qtyInput = document.getElementById('qty-input');
+      document.getElementById('qty-minus').addEventListener('click', () => {
+        let val = parseInt(qtyInput.value) || 1;
+        if (val > 1) qtyInput.value = val - 1;
+      });
+      document.getElementById('qty-plus').addEventListener('click', () => {
+        let val = parseInt(qtyInput.value) || 1;
+        qtyInput.value = val + 1;
+      });
+
+      // Actions
+      document.getElementById('btn-add-to-cart').addEventListener('click', () => {
+        const qty = parseInt(qtyInput.value) || 1;
+        addToCart(product.id, qty, selectedVariant);
+      });
+
+      document.getElementById('btn-buy-now').addEventListener('click', () => {
+        const qty = parseInt(qtyInput.value) || 1;
+        addToCart(product.id, qty, selectedVariant);
+        window.location.href = 'checkout.html';
+      });
+
+      const wishBtn = document.getElementById('btn-toggle-wishlist');
+      function updateWishBtn() {
+        const inWish = isInWishlist(product.id);
+        wishBtn.innerHTML = `<i class="bi ${inWish ? 'bi-heart-fill text-danger' : 'bi-heart'}"></i>`;
+      }
+      wishBtn.addEventListener('click', () => {
+        toggleWishlist(product.id);
+        updateWishBtn();
+      });
+      updateWishBtn();
+
+      // Specs render
+      const specsContent = document.getElementById('p-specs-content');
+      if (product.specs) {
+        specsContent.innerHTML = `
+          <table class="table table-borderless table-sm mb-0">
+            <tbody>
+              ${Object.entries(product.specs).map(([key, val]) => `
+                <tr>
+                  <th class="ps-0 text-dark fw-semibold" style="width: 35%;">${key}:</th>
+                  <td>${val}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        `;
+      } else {
+        specsContent.textContent = 'Standard ROSÉLLE luxury specs applied.';
+      }
+
+      // Related Products
+      const relatedGrid = document.getElementById('related-products-grid');
+      const sameCatItems = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
+      relatedGrid.innerHTML = sameCatItems.map(p => createProductCardHTML(p)).join('');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROSÉLLE — Fashion • Beauty • Everyday Style</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar text-center">
+    <span>Complimentary Express Shipping on Orders Over $100 <span class="mx-2">•</span> Use Code <span class="gold-accent fw-bold">ROSELLE20</span> for 20% Off</span>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg roselle-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        ROSÉLLE <span class="dot"></span>
+      </a>
+      
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#roselleNav">
+        <i class="bi bi-list fs-2 text-dark"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="roselleNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html?filter=new">New Arrivals</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html?filter=deals">Deals</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="icon-btn trigger-search" title="Search Catalog">
+            <i class="bi bi-search"></i>
+          </button>
+          <a href="shop.html?filter=wishlist" class="icon-btn" title="Wishlist">
+            <i class="bi bi-heart"></i>
+            <span class="badge-count wishlist-count-badge" style="display:none">0</span>
+          </a>
+          <a href="cart.html" class="icon-btn" title="Shopping Cart">
+            <i class="bi bi-bag"></i>
+            <span class="badge-count cart-count-badge" style="display:none">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-card">
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-6">
+            <span class="hero-subtitle">New Season Collection 2026</span>
+            <h1 class="hero-title">Elegance Crafted for Everyday Living</h1>
+            <p class="hero-description">
+              Discover curated luxury in modern fashion, radiant beauty, fine timepieces, and artisan scents designed to elevate your personal style.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="shop.html" class="btn btn-roselle-primary">
+                Shop Collection <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+              <a href="categories.html" class="btn btn-roselle-outline">
+                Explore Categories
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=80" alt="ROSÉLLE Hero Fashion" fetchpriority="high" loading="eager" decoding="async">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- All 8 Categories Grid Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="text-uppercase text-muted fw-bold small tracking-wider" style="letter-spacing: 0.15em;">Curated Departments</span>
+        <h2 class="display-5 mt-1 fw-semibold">Shop by Category</h2>
+        <p class="text-muted mx-auto" style="max-width: 500px;">Explore our 8 distinct fashion and beauty collections crafted for the modern lifestyle.</p>
+      </div>
+
+      <div class="row g-4" id="categories-container">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- New Arrivals Section -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <div>
+          <span class="text-uppercase text-muted fw-bold small" style="letter-spacing: 0.15em;">Just Landed</span>
+          <h2 class="h1 font-serif mb-0">New Arrivals</h2>
+        </div>
+        <a href="shop.html?filter=new" class="btn btn-link text-dark text-decoration-none fw-semibold">
+          View All New <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="row g-4" id="new-arrivals-grid">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotional Banner Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="promo-banner">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-3 text-uppercase small">Limited Time Edit</span>
+            <h2>Spring Beauty & Fragrance Edit</h2>
+            <p>Receive an exclusive ROSÉLLE travel tote bag and luxury sample set with any beauty or fragrance purchase over $120.</p>
+            <a href="perfumes.html" class="btn btn-roselle-light">
+              SHOP FRAGRANCE <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Sellers Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <div>
+          <span class="text-uppercase text-muted fw-bold small" style="letter-spacing: 0.15em;">Customer Favorites</span>
+          <h2 class="h1 font-serif mb-0">Best Sellers</h2>
+        </div>
+        <a href="shop.html?filter=bestseller" class="btn btn-link text-dark text-decoration-none fw-semibold">
+          View All Favorites <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="row g-4" id="bestsellers-grid">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Shop With Us -->
+  <section class="py-5 bg-white border-top border-bottom">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-3 col-6">
+          <div class="feature-perk-card">
+            <div class="feature-perk-icon"><i class="bi bi-truck"></i></div>
+            <h5 class="fw-semibold mb-2 fs-6">Complimentary Shipping</h5>
+            <p class="text-muted small mb-0">Free express delivery on all orders over $100 worldwide.</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="feature-perk-card">
+            <div class="feature-perk-icon"><i class="bi bi-shield-check"></i></div>
+            <h5 class="fw-semibold mb-2 fs-6">Artisanal Quality</h5>
+            <p class="text-muted small mb-0">Sourced from certified sustainable European ateliers.</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="feature-perk-card">
+            <div class="feature-perk-icon"><i class="bi bi-arrow-counterclockwise"></i></div>
+            <h5 class="fw-semibold mb-2 fs-6">30-Day Easy Returns</h5>
+            <p class="text-muted small mb-0">Hassle-free returns and instant exchanges guaranteed.</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="feature-perk-card">
+            <div class="feature-perk-icon"><i class="bi bi-headset"></i></div>
+            <h5 class="fw-semibold mb-2 fs-6">Personal Concierge</h5>
+            <p class="text-muted small mb-0">24/7 dedicated styling and order assistance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="roselle-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h5>ROSÉLLE</h5>
+          <p class="text-muted small pe-lg-4 mb-4" style="color: rgba(255,255,255,0.6) !important;">
+            Feminine, modern, and timeless fashion & beauty essentials crafted with quiet luxury in mind.
+          </p>
+          <div class="d-flex gap-3">
+            <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width:36px; height:36px; display:flex; align-items:center; justify-content:center;"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width:36px; height:36px; display:flex; align-items:center; justify-content:center;"><i class="bi bi-pinterest"></i></a>
+            <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width:36px; height:36px; display:flex; align-items:center; justify-content:center;"><i class="bi bi-tiktok"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6 mb-4">
+          <h6 class="text-white text-uppercase fw-semibold mb-3 small" style="letter-spacing: 0.1em;">Categories</h6>
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+            <li><a href="nails.html">Nails</a></li>
+            <li><a href="clothes.html">Women Clothes</a></li>
+            <li><a href="accessories.html">Accessories</a></li>
+            <li><a href="sandals.html">Sandals</a></li>
+            <li><a href="shoes.html">Shoes</a></li>
+            <li><a href="makeup.html">Makeup</a></li>
+            <li><a href="perfumes.html">Perfumes</a></li>
+            <li><a href="watches.html">Watches</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6 mb-4">
+          <h6 class="text-white text-uppercase fw-semibold mb-3 small" style="letter-spacing: 0.1em;">Quick Links</h6>
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+            <li><a href="shop.html">Shop All</a></li>
+            <li><a href="categories.html">Department Overview</a></li>
+            <li><a href="shop.html?filter=new">New Arrivals</a></li>
+            <li><a href="shop.html?filter=deals">Offers & Deals</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="cart.html">My Cart</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h6 class="text-white text-uppercase fw-semibold mb-3 small" style="letter-spacing: 0.1em;">Newsletter</h6>
+          <p class="small mb-3" style="color: rgba(255,255,255,0.6);">Subscribe to receive private invitations to new collection previews and insider privileges.</p>
+          <form onsubmit="event.preventDefault(); showToast('Thank you for subscribing to ROSÉLLE updates!', 'bi-envelope-check'); this.reset();" class="d-flex gap-2">
+            <input type="email" required placeholder="Enter your email address" class="form-control form-control-sm bg-transparent border-secondary text-white">
+            <button type="submit" class="btn btn-sm btn-roselle-primary px-3 text-nowrap">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center">
+        <div>&copy; 2026 ROSÉLLE Inc. All Rights Reserved. Fashion • Beauty • Everyday Style.</div>
+        <div class="d-flex gap-3 fs-5" style="color: rgba(255,255,255,0.4);">
+          <i class="bi bi-credit-card-2-front"></i>
+          <i class="bi bi-paypal"></i>
+          <i class="bi bi-apple"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Render All 8 Categories
+      const catContainer = document.getElementById('categories-container');
+      if (catContainer) {
+        catContainer.innerHTML = CATEGORIES.map(cat => `
+          <div class="col-6 col-md-4 col-lg-3">
+            <a href="${cat.slug}" class="category-card">
+              <img src="${cat.bannerImg}" alt="${cat.name}" class="category-img">
+              <h3 class="category-title">${cat.name}</h3>
+              <p class="category-count mb-0">Explore Collection <i class="bi bi-arrow-right"></i></p>
+            </a>
+          </div>
+        `).join('');
+      }
+
+      // Render New Arrivals
+      const newArrivalsGrid = document.getElementById('new-arrivals-grid');
+      if (newArrivalsGrid) {
+        const newItems = PRODUCTS.filter(p => p.isNew).slice(0, 4);
+        newArrivalsGrid.innerHTML = newItems.map(p => createProductCardHTML(p)).join('');
+      }
+
+      // Render Best Sellers
+      const bestSellersGrid = document.getElementById('bestsellers-grid');
+      if (bestSellersGrid) {
+        const bestItems = PRODUCTS.filter(p => p.isBestSeller).slice(0, 4);
+        bestSellersGrid.innerHTML = bestItems.map(p => createProductCardHTML(p)).join('');
+      }
+    });
+  </script>
+</body>
+</html>

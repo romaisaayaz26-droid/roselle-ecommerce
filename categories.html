@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Departments & Categories — ROSÉLLE</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar text-center">
+    <span>Complimentary Express Shipping on Orders Over $100 <span class="mx-2">•</span> Use Code <span class="gold-accent fw-bold">ROSELLE20</span> for 20% Off</span>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg roselle-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        ROSÉLLE <span class="dot"></span>
+      </a>
+      
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#roselleNav">
+        <i class="bi bi-list fs-2 text-dark"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="roselleNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link active" href="categories.html">Categories</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html?filter=new">New Arrivals</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html?filter=deals">Deals</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="icon-btn trigger-search" title="Search Catalog">
+            <i class="bi bi-search"></i>
+          </button>
+          <a href="shop.html?filter=wishlist" class="icon-btn" title="Wishlist">
+            <i class="bi bi-heart"></i>
+            <span class="badge-count wishlist-count-badge" style="display:none">0</span>
+          </a>
+          <a href="cart.html" class="icon-btn" title="Shopping Cart">
+            <i class="bi bi-bag"></i>
+            <span class="badge-count cart-count-badge" style="display:none">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header Title -->
+  <div class="page-header-title bg-light border-bottom">
+    <div class="container">
+      <h1>Departments & Collections</h1>
+      <p>Explore all 8 dedicated ROSÉLLE store categories crafted for timeless style, beauty, and luxury.</p>
+    </div>
+  </div>
+
+  <!-- Categories List Grid -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4" id="all-categories-grid">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="roselle-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h5>ROSÉLLE</h5>
+          <p class="text-muted small pe-lg-4 mb-4" style="color: rgba(255,255,255,0.6) !important;">
+            Feminine, modern, and timeless fashion & beauty essentials crafted with quiet luxury in mind.
+          </p>
+          <div class="d-flex gap-3">
+            <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width:36px; height:36px; display:flex; align-items:center; justify-content:center;"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width:36px; height:36px; display:flex; align-items:center; justify-content:center;"><i class="bi bi-pinterest"></i></a>
+            <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width:36px; height:36px; display:flex; align-items:center; justify-content:center;"><i class="bi bi-tiktok"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6 mb-4">
+          <h6 class="text-white text-uppercase fw-semibold mb-3 small" style="letter-spacing: 0.1em;">Categories</h6>
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+            <li><a href="nails.html">Nails</a></li>
+            <li><a href="clothes.html">Women Clothes</a></li>
+            <li><a href="accessories.html">Accessories</a></li>
+            <li><a href="sandals.html">Sandals</a></li>
+            <li><a href="shoes.html">Shoes</a></li>
+            <li><a href="makeup.html">Makeup</a></li>
+            <li><a href="perfumes.html">Perfumes</a></li>
+            <li><a href="watches.html">Watches</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6 mb-4">
+          <h6 class="text-white text-uppercase fw-semibold mb-3 small" style="letter-spacing: 0.1em;">Quick Links</h6>
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+            <li><a href="shop.html">Shop All</a></li>
+            <li><a href="categories.html">Department Overview</a></li>
+            <li><a href="shop.html?filter=new">New Arrivals</a></li>
+            <li><a href="shop.html?filter=deals">Offers & Deals</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="cart.html">My Cart</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h6 class="text-white text-uppercase fw-semibold mb-3 small" style="letter-spacing: 0.1em;">Newsletter</h6>
+          <p class="small mb-3" style="color: rgba(255,255,255,0.6);">Subscribe to receive private invitations to new collection previews and insider privileges.</p>
+          <form onsubmit="event.preventDefault(); showToast('Thank you for subscribing to ROSÉLLE updates!', 'bi-envelope-check'); this.reset();" class="d-flex gap-2">
+            <input type="email" required placeholder="Enter your email address" class="form-control form-control-sm bg-transparent border-secondary text-white">
+            <button type="submit" class="btn btn-sm btn-roselle-primary px-3 text-nowrap">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center">
+        <div>&copy; 2026 ROSÉLLE Inc. All Rights Reserved. Fashion • Beauty • Everyday Style.</div>
+        <div class="d-flex gap-3 fs-5" style="color: rgba(255,255,255,0.4);">
+          <i class="bi bi-credit-card-2-front"></i>
+          <i class="bi bi-paypal"></i>
+          <i class="bi bi-apple"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('all-categories-grid');
+      if (grid) {
+        grid.innerHTML = CATEGORIES.map(cat => {
+          const catProducts = getProductsByCategory(cat.id);
+          return `
+            <div class="col-md-6 col-lg-4">
+              <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 card-hover-effect">
+                <img src="${cat.bannerImg}" class="card-img-top" alt="${cat.name}" style="height: 220px; object-fit: cover;" loading="lazy" decoding="async">
+                <div class="card-body p-4 d-flex flex-column justify-content-between">
+                  <div>
+                    <span class="badge bg-light text-success mb-2 px-3 py-1 rounded-pill border fw-semibold">
+                      <i class="bi ${cat.icon} me-1"></i> ${catProducts.length} Products
+                    </span>
+                    <h3 class="font-serif h4 mb-2">${cat.name}</h3>
+                    <p class="text-muted small mb-4">${cat.description}</p>
+                  </div>
+                  <a href="${cat.slug}" class="btn btn-roselle-outline w-100 justify-content-center">
+                    Browse ${cat.name} <i class="bi bi-arrow-right ms-2"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+    });
+  </script>
+</body>
+</html>

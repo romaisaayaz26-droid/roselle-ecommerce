@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Catalog — ROSÉLLE</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar text-center">
+    <span>Complimentary Express Shipping on Orders Over $100 <span class="mx-2">•</span> Use Code <span class="gold-accent fw-bold">ROSELLE20</span> for 20% Off</span>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg roselle-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        ROSÉLLE <span class="dot"></span>
+      </a>
+      
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#roselleNav">
+        <i class="bi bi-list fs-2 text-dark"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="roselleNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html?filter=new">New Arrivals</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html?filter=deals">Deals</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="icon-btn trigger-search" title="Search Catalog">
+            <i class="bi bi-search"></i>
+          </button>
+          <a href="shop.html?filter=wishlist" class="icon-btn" title="Wishlist">
+            <i class="bi bi-heart"></i>
+            <span class="badge-count wishlist-count-badge" style="display:none">0</span>
+          </a>
+          <a href="cart.html" class="icon-btn" title="Shopping Cart">
+            <i class="bi bi-bag"></i>
+            <span class="badge-count cart-count-badge" style="display:none">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header-title bg-light border-bottom">
+    <div class="container">
+      <h1 id="shop-page-title">Catalog & Collection</h1>
+      <p id="shop-page-desc">Browse our curated selection of luxury fashion, makeup, fragrances, timepieces, and accessories.</p>
+    </div>
+  </div>
+
+  <!-- Shop Main Content -->
+  <section class="py-5">
+    <div class="container">
+      
+      <!-- Filter Toolbar -->
+      <div class="filter-toolbar">
+        <div class="d-flex align-items-center gap-2 flex-wrap">
+          <span class="fw-semibold text-muted small text-uppercase" style="letter-spacing:0.05em;">Category:</span>
+          <select id="category-filter-select" class="filter-input">
+            <option value="all">All Departments</option>
+            <option value="nails">Nails</option>
+            <option value="clothes">Women Clothes</option>
+            <option value="accessories">Accessories</option>
+            <option value="sandals">Sandals</option>
+            <option value="shoes">Shoes</option>
+            <option value="makeup">Makeup</option>
+            <option value="perfumes">Perfumes</option>
+            <option value="watches">Watches</option>
+          </select>
+
+          <input type="text" id="shop-search-input" class="filter-input" placeholder="Search by keyword..." style="width: 200px; max-width: 100%;">
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+          <span class="text-muted small" id="products-count-label">Showing 0 products</span>
+          <select id="sort-select" class="filter-input">
+            <option value="featured">Sort by: Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="row g-4" id="shop-products-grid">
+        <!-- Rendered via JavaScript -->
+      </div>
+
+      <!-- Empty State Container -->
+      <div id="empty-state" class="text-center py-5 d-none">
+        <i class="bi bi-search fs-1 text-muted mb-3 d-block"></i>
+        <h4 class="font-serif">No products found</h4>
+        <p class="text-muted mb-4">Try adjusting your category filter or search keywords.</p>
+        <button class="btn btn-roselle-outline" onclick="resetFilters()">Reset All Filters</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="roselle-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h5>ROSÉLLE</h5>
+          <p class="text-muted small pe-lg-4 mb-4" style="color: rgba(255,255,255,0.6) !important;">
+            Feminine, modern, and timeless fashion & beauty essentials crafted with quiet luxury in mind.
+          </p>
+          <div class="d-flex gap-3">
+            <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width:36px; height:36px; display:flex; align-items:center; justify-content:center;"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width:36px; height:36px; display:flex; align-items:center; justify-content:center;"><i class="bi bi-pinterest"></i></a>
+            <a href="#" class="btn btn-sm btn-outline-light rounded-circle" style="width:36px; height:36px; display:flex; align-items:center; justify-content:center;"><i class="bi bi-tiktok"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6 mb-4">
+          <h6 class="text-white text-uppercase fw-semibold mb-3 small" style="letter-spacing: 0.1em;">Categories</h6>
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+            <li><a href="nails.html">Nails</a></li>
+            <li><a href="clothes.html">Women Clothes</a></li>
+            <li><a href="accessories.html">Accessories</a></li>
+            <li><a href="sandals.html">Sandals</a></li>
+            <li><a href="shoes.html">Shoes</a></li>
+            <li><a href="makeup.html">Makeup</a></li>
+            <li><a href="perfumes.html">Perfumes</a></li>
+            <li><a href="watches.html">Watches</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-6 col-6 mb-4">
+          <h6 class="text-white text-uppercase fw-semibold mb-3 small" style="letter-spacing: 0.1em;">Quick Links</h6>
+          <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+            <li><a href="shop.html">Shop All</a></li>
+            <li><a href="categories.html">Department Overview</a></li>
+            <li><a href="shop.html?filter=new">New Arrivals</a></li>
+            <li><a href="shop.html?filter=deals">Offers & Deals</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="cart.html">My Cart</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h6 class="text-white text-uppercase fw-semibold mb-3 small" style="letter-spacing: 0.1em;">Newsletter</h6>
+          <p class="small mb-3" style="color: rgba(255,255,255,0.6);">Subscribe to receive private invitations to new collection previews and insider privileges.</p>
+          <form onsubmit="event.preventDefault(); showToast('Thank you for subscribing to ROSÉLLE updates!', 'bi-envelope-check'); this.reset();" class="d-flex gap-2">
+            <input type="email" required placeholder="Enter your email address" class="form-control form-control-sm bg-transparent border-secondary text-white">
+            <button type="submit" class="btn btn-sm btn-roselle-primary px-3 text-nowrap">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center">
+        <div>&copy; 2026 ROSÉLLE Inc. All Rights Reserved. Fashion • Beauty • Everyday Style.</div>
+        <div class="d-flex gap-3 fs-5" style="color: rgba(255,255,255,0.4);">
+          <i class="bi bi-credit-card-2-front"></i>
+          <i class="bi bi-paypal"></i>
+          <i class="bi bi-apple"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const searchParam = urlParams.get('search');
+      const filterParam = urlParams.get('filter');
+      const categoryParam = urlParams.get('category');
+
+      const catSelect = document.getElementById('category-filter-select');
+      const searchInput = document.getElementById('shop-search-input');
+      const sortSelect = document.getElementById('sort-select');
+      const grid = document.getElementById('shop-products-grid');
+      const countLabel = document.getElementById('products-count-label');
+      const emptyState = document.getElementById('empty-state');
+      const pageTitle = document.getElementById('shop-page-title');
+      const pageDesc = document.getElementById('shop-page-desc');
+
+      if (categoryParam) catSelect.value = categoryParam;
+      if (searchParam) searchInput.value = searchParam;
+
+      if (filterParam === 'new') {
+        pageTitle.textContent = 'New Arrivals';
+        pageDesc.textContent = 'Explore the newest releases fresh from our design studio.';
+      } else if (filterParam === 'deals') {
+        pageTitle.textContent = 'Special Deals & Offers';
+        pageDesc.textContent = 'Limited time savings on selected luxury styles and beauty staples.';
+      } else if (filterParam === 'bestseller') {
+        pageTitle.textContent = 'Best Sellers';
+        pageDesc.textContent = 'Our most loved and highly reviewed pieces.';
+      } else if (filterParam === 'wishlist') {
+        pageTitle.textContent = 'Your Saved Wishlist';
+        pageDesc.textContent = 'Your curated wishlist of items you love.';
+      }
+
+      function filterAndRender() {
+        let items = [...PRODUCTS];
+
+        // Filter Param
+        if (filterParam === 'new') {
+          items = items.filter(p => p.isNew);
+        } else if (filterParam === 'deals') {
+          items = items.filter(p => p.isDeal);
+        } else if (filterParam === 'bestseller') {
+          items = items.filter(p => p.isBestSeller);
+        } else if (filterParam === 'wishlist') {
+          const wishIds = getWishlist();
+          items = items.filter(p => wishIds.includes(p.id));
+        }
+
+        // Category Select
+        const catVal = catSelect.value;
+        if (catVal !== 'all') {
+          items = items.filter(p => p.category.toLowerCase() === catVal.toLowerCase());
+        }
+
+        // Search Input
+        const q = searchInput.value.trim().toLowerCase();
+        if (q) {
+          items = items.filter(p => 
+            p.name.toLowerCase().includes(q) ||
+            p.categoryName.toLowerCase().includes(q) ||
+            p.description.toLowerCase().includes(q)
+          );
+        }
+
+        // Sort Select
+        const sortVal = sortSelect.value;
+        if (sortVal === 'price-low') {
+          items.sort((a, b) => a.price - b.price);
+        } else if (sortVal === 'price-high') {
+          items.sort((a, b) => b.price - a.price);
+        } else if (sortVal === 'rating') {
+          items.sort((a, b) => b.rating - a.rating);
+        }
+
+        // Render
+        countLabel.textContent = `Showing ${items.length} product${items.length !== 1 ? 's' : ''}`;
+        
+        if (items.length === 0) {
+          grid.innerHTML = '';
+          emptyState.classList.remove('d-none');
+        } else {
+          emptyState.classList.add('d-none');
+          grid.innerHTML = items.map(p => createProductCardHTML(p)).join('');
+        }
+      }
+
+      window.resetFilters = function() {
+        catSelect.value = 'all';
+        searchInput.value = '';
+        sortSelect.value = 'featured';
+        window.history.replaceState({}, '', 'shop.html');
+        filterAndRender();
+      };
+
+      catSelect.addEventListener('change', filterAndRender);
+      searchInput.addEventListener('input', filterAndRender);
+      sortSelect.addEventListener('change', filterAndRender);
+
+      filterAndRender();
+    });
+  </script>
+</body>
+</html>
